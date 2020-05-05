@@ -19,11 +19,16 @@ grad = zeros(size(theta));
 %               You should set J to the cost and grad to the gradient.
 %
 
+h = X * theta;
 
 
+% J = (1 / 2*m) * sum((h - y) .^ 2) + (lambda / (2 * m)) * (sum(theta(2:length(theta)) .^ 2));
+% Vectorized method
+J = (1 / (2*m)) * (h - y)' * (h - y) + (lambda / (2 * m)) * ((theta(2:end))' * theta(2:end));
+theta_mod = theta;
+theta_mod(1) = 0;
 
-
-
+grad = ((1 / m) * (h - y)' * X) + lambda / m * theta_mod';
 
 
 
