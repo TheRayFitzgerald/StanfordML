@@ -53,8 +53,6 @@ error_val   = zeros(m, 1);
 
 % ---------------------- Sample Solution ----------------------
 
-h = X * theta;
-
 for i = 1:m
 
 	X_subset = X(1:i, :);
